@@ -6,3 +6,14 @@ html {
   overflow: hidden;
 }
 
+#input-box {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  flex-flow: column;
+  min-height: 50px;
+  width: 20vw;
+  position: absolute;
+  left: 5vw;
+  top: 5vw;
+}

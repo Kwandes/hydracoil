@@ -9,6 +9,15 @@
     <script src="https://unpkg.com/hydra-synth"></script>
   </head>
   <body onload="init()">
+    <div id="input-box">
+      <label for="command-input">Your command</label>
+      <input
+        type="text"
+        id="command-input"
+        name="command-input"
+        placeholder="osc(10, 0.1, 0.8).out()"
+      />
+    </div>
     <canvas id="canvas" width="1280px" height="720px"></canvas>
     <script src="index.js"></script>
   </body>
