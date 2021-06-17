@@ -20,4 +20,12 @@ html {
 
 #command-input {
     width: fit-content;
+    max-width: 28vw;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: beige;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 200%;
+    letter-spacing: 0.5px;
+    padding: 0.25vw;
+    border-radius: 0.25vw;
 }
