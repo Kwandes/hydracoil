@@ -3,7 +3,7 @@ canvas.height = window.innerHeight;
 // create a new hydra-synth instance
 const hydra = new Hydra({
   canvas: document.getElementById("canvas"),
-  detectAudio: false,
+  detectAudio: true,
   numSources: 4,
   numOutputs: 4,
 });
@@ -31,8 +31,10 @@ function init() {
     console.log(hydraCommand);
     evaluateHydraCommand(hydraCommand);
   });
+
 }
 
+a.show();
 // attempt to execute a given hydra command
 function evaluateHydraCommand(command) {
   try {
@@ -51,6 +53,3 @@ function evaluateHydraCommand(command) {
   }
   return true;
 }
-
-// osc(20, 0.1, 0).color(0, 1, 2).rotate(1.57/2).out(o1) osc(30, 0.01, 0).color(2, 0.7, 1).modulate(o1, 0).add(o1,1).modulatePixelate(o1,1,10).out(o0)
-// osc(30, 0.01, 0).color(2, 0.7, 1).modulate(o1, 0).add(o1,1).modulatePixelate(o1,1,10).out(o0)
