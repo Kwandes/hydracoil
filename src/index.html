@@ -11,12 +11,15 @@
   <body onload="init()">
     <div id="input-box">
       <label for="command-input">Your command</label>
-      <input
-        type="text"
+      <span
+        class="input"
+        role="textbox"
         id="command-input"
         name="command-input"
-        placeholder="osc(10, 0.1, 0.8).out()"
-      />
+        contenteditable
+      >
+      osc(10, 0.1, 0.8).out()
+      </span>
     </div>
     <canvas id="canvas" width="1280px" height="720px"></canvas>
     <script src="index.js"></script>

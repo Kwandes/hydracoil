@@ -17,3 +17,7 @@ html {
   left: 5vw;
   top: 5vw;
 }
+
+#command-input {
+    width: fit-content;
+}
