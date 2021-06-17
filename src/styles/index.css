@@ -6,6 +6,19 @@ html {
   overflow: hidden;
 }
 
+#audio {
+    
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  flex-flow: column;
+  height: 3vw;
+  width: 20vw;
+  position: absolute;
+  left: 5vw;
+  top: 5vw;
+}
+
 #input-box {
   display: flex;
   align-items: center;
@@ -15,7 +28,7 @@ html {
   width: 20vw;
   position: absolute;
   left: 5vw;
-  top: 5vw;
+  top: 10vw;
 }
 
 #command-input {

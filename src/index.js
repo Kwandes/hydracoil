@@ -8,6 +8,10 @@ const hydra = new Hydra({
   numOutputs: 4,
 });
 
+// initialize the audio behaviour
+a.setSmooth(0.9);
+a.setScale(19);
+
 // hydra command to show if the new evaluated command fails
 let lastValidHydraCommand = "osc(10, 0.1, 0.8).out()";
 
@@ -31,10 +35,8 @@ function init() {
     console.log(hydraCommand);
     evaluateHydraCommand(hydraCommand);
   });
-
 }
 
-a.show();
 // attempt to execute a given hydra command
 function evaluateHydraCommand(command) {
   try {
