@@ -13,7 +13,36 @@ a.setSmooth(0.9);
 a.setScale(19);
 
 // hydra command to show if the new evaluated command fails
-let lastValidHydraCommand = "osc(10, 0.1, 0.8).out()";
+
+let commandStart = "osc(10, 0.1, 0.8)";
+let commandEnd = ".out()";
+
+let backgroundPattern = [
+  ".color(1.14, 0.6,.80).rotate(0.92, 0.3).pixelate(20, 10).mult(osc(40, 0.03).thresh(0.4).rotate(0, -0.02))",
+  ".scale(1.5).color(1.14, 0.6,.80)",
+  ".color(1.14, 0.6,.80)",
+  ".color(0.5,0.8,50).scale(() => Math.sin(time)+1*70).repeat(() => Math.sin(time)*10).modulateRotate(o0).scale(() => Math.sin(time)+1 *1.5).modulate(noise(2,2)).rotate(1, .2)",
+  ".color(0.5,0.8,5).scale(() => Math.sin(time)+1*5).repeat(() => Math.sin(time)*10).modulateRotate(o0).scale(() => Math.sin(time)+1 *2).modulate(noise(2,2)).rotate(10, .2)",
+];
+let foregroundPattern = [
+  "shape(99,.15,.5).color(0,1,2).diff( shape(240,.5,0).scrollX(.05).rotate( ()=>time/10 ).color(1,0,.75) ).diff( shape(99,.4,.002).scrollX(.10).rotate( ()=>time/20 ).color(1,0,.75) ).diff( shape(99,.3,.002).scrollX(.15).rotate( ()=>time/30 ).color(1,0,.75) ).diff( shape(99,.2,.002).scrollX(.20).rotate( ()=>time/40 ).color(1,0,.75) ).diff( shape(99,.1,.002).scrollX(.25).rotate( ()=>time/50 ).color(1,0,.75) ).modulateScale(shape(240,.5,0).scrollX(.05).rotate( ()=>time/10 ), ()=>(Math.sin(time/3)*.2)+.2 ).scale(1.6,.6,1)",
+  "osc(10, 0.1, 0.8).kaleid().mask(shape(4, 0.3, 1)).modulateRotate(shape(4, 0.1, 1)).modulateRotate(shape(4, 0.1, 0.9)).modulateRotate(shape(4, 0.1, 0.8)).rotate(() => time / 4).scale(0.3).add(shape(4, 0.3, 1).color(0.3, 0.2, 0.8))",
+];
+
+// Ability to scroll the background pattern
+//const scrollPattern = ".scrollX(1,({time}) => Math.sin(time*0.05)*0.05 ).scrollY(1,({time}) => Math.sin(time*0.05)*0.05 )"
+const scrollPattern = "";
+
+let lastValidHydraCommand =
+  commandStart +
+  backgroundPattern[Math.floor(Math.random() * backgroundPattern.length)] +
+  scrollPattern +
+  ".add(" +
+  //commandStart +
+  foregroundPattern[Math.floor(Math.random() * foregroundPattern.length)] +
+  ").out();";
+
+document.getElementById("command-input").innerText = lastValidHydraCommand;
 
 function init() {
   console.log("Time to start the show!");
