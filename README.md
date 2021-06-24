@@ -4,7 +4,7 @@ A small website with integrated Hydra plugin, capable of live coding visuals tha
 
 ## Running the project
 
-You can clone the project and run the [`index.js`](./src/index.js) file, or check out a running example at [https://kwandes.github.io/hydracoil/](https://kwandes.github.io/hydracoil/)
+You can clone the project and open the [`index.html`](./src/index.html) file, or check out a running example at [https://kwandes.github.io/hydracoil/src/](https://kwandes.github.io/hydracoil/src/)
 
 ### License
 
