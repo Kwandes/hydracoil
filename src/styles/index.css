@@ -42,7 +42,8 @@ html {
   border-radius: 0.25vw;
 }
 
-#hide-ui {
+#hide-ui,
+#toggle-audio-patterns {
   display: flex;
   align-items: center;
   justify-content: left;
@@ -52,7 +53,12 @@ html {
   top: 98vh;
 }
 
-#hide-ui-button {
+#toggle-audio-patterns {
+  left: 6vw;
+}
+
+#hide-ui-button,
+#toggle-audio-patterns-button {
   border-radius: 1vw;
   padding: 5px 15px 5px 15px;
   border: none;

@@ -22,6 +22,9 @@ function startListeningToAudio() {
   console.log("Listening to your bullshit");
   a.show();
   audioPatternLoopInterval = setInterval(() => {
+    // Check if the pattern changing is enabled
+    if (enabledAudioPatterns == undefined || enabledAudioPatterns == false)
+      return;
     intervalCounter++;
     // don't change the pattern if it changed too often
     if (

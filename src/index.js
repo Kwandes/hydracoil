@@ -35,6 +35,9 @@ function init() {
   });
 
   document.getElementById("hide-ui-button").addEventListener("click", hideUi);
+  document
+    .getElementById("toggle-audio-patterns-button")
+    .addEventListener("click", toggleAudioPatterns);
 }
 
 let isUiHidden = false;
@@ -45,8 +48,21 @@ function hideUi() {
   if (isUiHidden) {
     document.getElementById("input-box").style.display = "none";
     document.getElementById("audio").style.display = "none";
+    document.getElementById("toggle-audio-patterns").style.display = "none";
   } else {
     document.getElementById("input-box").style.display = "flex";
     document.getElementById("audio").style.display = "flex";
+    document.getElementById("toggle-audio-patterns").style.display = "flex";
   }
+}
+
+let enabledAudioPatterns = true;
+
+function toggleAudioPatterns() {
+  enabledAudioPatterns = !enabledAudioPatterns;
+  console.log(`Changing audio patterns to ${enabledAudioPatterns}`);
+  const button = document.getElementById("toggle-audio-patterns-button");
+  button.innerHTML = enabledAudioPatterns
+    ? "Disable Pattern Magic"
+    : "Enable Pattern Magic";
 }
