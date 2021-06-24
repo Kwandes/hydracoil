@@ -8,6 +8,13 @@ const hydra = new Hydra({
   numOutputs: 4,
 });
 
+window.addEventListener("resize", () => {
+  console.log("Window has been resized, adjusting the canvas");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  hydra.setResolution(canvas.width, canvas.height);
+});
+
 // initialize the audio behaviour
 a.setSmooth(0.9);
 a.setScale(19);
