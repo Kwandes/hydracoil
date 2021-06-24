@@ -1,3 +1,8 @@
+/*
+ * This file contains logic for initalizing the project, as well as hiding the UI
+ *
+ */
+
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
@@ -7,7 +12,6 @@ window.addEventListener("resize", () => {
   canvas.height = window.innerHeight;
   hydra.setResolution(canvas.width, canvas.height);
 });
-
 
 function init() {
   console.log("Time to start the show!");
@@ -32,7 +36,6 @@ function init() {
 
   document.getElementById("hide-ui-button").addEventListener("click", hideUi);
 }
-
 
 let isUiHidden = false;
 

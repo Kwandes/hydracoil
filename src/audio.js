@@ -1,3 +1,8 @@
+/*
+ * THis file contains logic for audio setup, and controlling the visuals with audio
+ *
+ */
+
 const audio = document.getElementById("audio");
 // adjust the volume
 audio.volume = 0.2;

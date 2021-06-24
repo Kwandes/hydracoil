@@ -1,10 +1,15 @@
+/*
+ * This file contains hydra initialization and pattern logic
+ *
+ */
+
 // create a new hydra-synth instance
 const hydra = new Hydra({
-    canvas: document.getElementById("canvas"),
-    detectAudio: true,
-    numSources: 4,
-    numOutputs: 4,
-  });
+  canvas: document.getElementById("canvas"),
+  detectAudio: true,
+  numSources: 4,
+  numOutputs: 4,
+});
 
 // initialize the audio behaviour
 a.setSmooth(0.9);
