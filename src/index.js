@@ -54,6 +54,9 @@ function hideUi() {
     document.getElementById("audio").style.display = "flex";
     document.getElementById("toggle-audio-patterns").style.display = "flex";
   }
+  document.getElementById("hide-ui-button").innerHTML = isUiHidden
+    ? "Show UI"
+    : "Hide UI";
 }
 
 let enabledAudioPatterns = true;
@@ -61,8 +64,6 @@ let enabledAudioPatterns = true;
 function toggleAudioPatterns() {
   enabledAudioPatterns = !enabledAudioPatterns;
   console.log(`Changing audio patterns to ${enabledAudioPatterns}`);
-  const button = document.getElementById("toggle-audio-patterns-button");
-  button.innerHTML = enabledAudioPatterns
-    ? "Disable Pattern Magic"
-    : "Enable Pattern Magic";
+  document.getElementById("toggle-audio-patterns-button").innerHTML =
+    enabledAudioPatterns ? "Disable Pattern Magic" : "Enable Pattern Magic";
 }
