@@ -7,7 +7,6 @@ html {
 }
 
 #audio {
-    
   display: flex;
   align-items: center;
   justify-content: left;
@@ -32,13 +31,31 @@ html {
 }
 
 #command-input {
-    width: fit-content;
-    max-width: 28vw;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: beige;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    line-height: 200%;
-    letter-spacing: 0.5px;
-    padding: 0.25vw;
-    border-radius: 0.25vw;
+  width: fit-content;
+  max-width: 28vw;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: beige;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 200%;
+  letter-spacing: 0.5px;
+  padding: 0.25vw;
+  border-radius: 0.25vw;
+}
+
+#hide-ui {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  flex-flow: column;
+  position: absolute;
+  left: 1vw;
+  top: 98vh;
+}
+
+#hide-ui-button {
+  border-radius: 1vw;
+  padding: 5px 15px 5px 15px;
+  border: none;
+  color: beige;
+  background-color: rgba(0, 0, 0, 0.7);
 }

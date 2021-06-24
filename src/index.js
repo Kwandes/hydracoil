@@ -69,6 +69,8 @@ function init() {
     console.log(hydraCommand);
     evaluateHydraCommand(hydraCommand);
   });
+
+  document.getElementById("hide-ui-button").addEventListener("click", hideUi);
 }
 
 // attempt to execute a given hydra command
@@ -88,4 +90,18 @@ function evaluateHydraCommand(command) {
     return false;
   }
   return true;
+}
+
+let isUiHidden = false;
+
+function hideUi() {
+  console.log(isUiHidden);
+  isUiHidden = !isUiHidden;
+  if (isUiHidden) {
+    document.getElementById("input-box").style.display = "none";
+    document.getElementById("audio").style.display = "none";
+  } else {
+    document.getElementById("input-box").style.display = "flex";
+    document.getElementById("audio").style.display = "flex";
+  }
 }
