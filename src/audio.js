@@ -19,7 +19,7 @@ const minimumTimeBetweenPatternChanges = 5; // seconds
 let intervalCounter = 0;
 
 function startListeningToAudio() {
-  console.log("Listening to your bullshit");
+  console.log("Listening to the music");
   a.show();
   audioPatternLoopInterval = setInterval(() => {
     // Check if the pattern changing is enabled
@@ -34,7 +34,7 @@ function startListeningToAudio() {
       return;
     }
     // Only change the pattern on loud beats or if it hasn't changed in X seconds
-    if (Math.floor(a.fft[0] * 100) % 10 < 7) {
+    if (Math.floor(a.fft[0] * 100) % 10 < 9) {
       if (intervalCounter != 1000 / patternChangeMinFrequencyPerMinute) {
         return;
       }
@@ -63,7 +63,7 @@ function startListeningToAudio() {
 }
 
 function stopListeningToAudio() {
-  console.log("I'm done with your bullshit");
+  console.log("Your taste is bad, I'm out");
   a.hide();
   clearInterval(audioPatternLoopInterval);
 }
