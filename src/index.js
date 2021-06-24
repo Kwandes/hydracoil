@@ -14,11 +14,11 @@ a.setScale(19);
 
 // hydra command to show if the new evaluated command fails
 
-let commandStart = "osc(10, 0.1, 0.8)";
+let commandStart = "osc(10, 0.1, ()=> (a.fft[0]*8))";
 let commandEnd = ".out()";
 
 let backgroundPattern = [
-  ".color(1.14, 0.6,.80).rotate(0.92, 0.3).pixelate(20, 10).mult(osc(40, 0.03).thresh(0.4).rotate(0, -0.02))",
+  ".color(1.14, 0.6,.80).rotate(0.92, 0.3).pixelate(20, 10).mult(osc(40, 0.03).thresh(0.4).scale(()=> (a.fft[0]/5-1)).rotate(0, -0.02))",
   ".scale(1.5).color(1.14, 0.6,.80)",
   ".color(1.14, 0.6,.80)",
   ".color(0.5,0.8,50).scale(() => Math.sin(time)+1*70).repeat(() => Math.sin(time)*10).modulateRotate(o0).scale(() => Math.sin(time)+1 *1.5).modulate(noise(2,2)).rotate(1, .2)",
@@ -28,10 +28,10 @@ let backgroundPattern = [
   ".color(1.04,0, -1.1).rotate(0.30, 0.1).pixelate(2, 20).modulate(noise(2.5), () => 1.5 * Math.sin(0.08 * time))",
 ];
 let foregroundPattern = [
-  "osc(20, 0.01, 1.1).kaleid(5).mask(shape(4, 0.3, 1)).color(2.83,0.91,0.39).rotate(0, 0.8).scale(.5)",
-  "osc(10, 0.1, 0.8).kaleid().mask(shape(4, 0.3, 1)).modulateRotate(shape(4, 0.1, 1)).modulateRotate(shape(4, 0.1, 0.9)).modulateRotate(shape(4, 0.1, 0.8)).rotate(() => time / 4).scale(0.3).add(shape(4, 0.3, 1).color(0.3, 0.2, 0.8))",
-  "shape(8, 0.2, 0.1).color(() => Math.abs(Math.sin(time) *2), () => Math.sin(time), .8).modulateScale(osc(2, 0.5, 0.05)).modulateRotate(shape(4,0.9,1)).mask(shape(4,0.3,.4)).rotate(() => time/5)",
-  "shape(() => Math.sin(time) *5, 0.2, 0.1).scale(.2).color(() => Math.abs(Math.sin(time) *2), () => Math.sin(time), .3).modulateScale(osc(2, 0.5, 0.05))  .modulateRotate(shape(4,0.9,1)).mask(shape(4,0.3,.4)).rotate(() => time/5)",
+  "osc(20, 0.01, 1.1).kaleid(5).mask(shape(4, () => (a.fft[0]*2), 1)).color(2.83,0.91,0.39).rotate(0, 0.8).scale(() => (a.fft[0]+0.4))",
+  "osc(10, 0.1, 0.8).kaleid().mask(shape(4, 0.3, 1)).modulateRotate(shape(4, 0.1, 1)).modulateRotate(shape(4, () => (a.fft[3]), 0.9)).modulateRotate(shape(4, 0.1, () => (a.fft[3]))).rotate(() => time / 4).scale(() => (a.fft[0]/5 + 0.3)).add(shape(4, 0.3, 1).color(0.3, 0.2, 0.8))",
+  "shape(8, 0.2, () => (a.fft[3])/2).color(() => Math.abs(Math.sin(time) *2), () => Math.sin(time), () => (a.fft[0])).modulateScale(osc(2, 0.5, 0.05)).modulateRotate(shape(4,0.9,1)).mask(shape(4,0.3,.4)).rotate(() => time/5)",
+  "shape(() => Math.sin(time) *5 +  a.fft[3]*2, 0.2, 0.1).scale(() => (a.fft[3]/4 + 0.1)).color(() => Math.abs(Math.sin(time) *2), () => Math.sin(time), .3).modulateScale(osc(2, 0.5, 0.05))  .modulateRotate(shape(4,0.9,1)).mask(shape(4,() => (a.fft[3]),.4)).rotate(() => time/5)",
 ];
 
 // Ability to scroll the background pattern
