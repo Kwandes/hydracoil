@@ -34,7 +34,7 @@ function startListeningToAudio() {
       return;
     }
     // Only change the pattern on loud beats or if it hasn't changed in X seconds
-    if (Math.floor(a.fft[0] * 100) % 10 < 9) {
+    if (Math.floor(a.fft[0] * 100) < 25) {
       if (intervalCounter != 1000 / patternChangeMinFrequencyPerMinute) {
         return;
       }
